@@ -6,11 +6,10 @@
 # We make no guarantees that this code is fit for any purpose. 
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
-class AddPriceToLineItem < ActiveRecord::Migration
-  def change
-    add_column :line_items, :price, :decimal
-    LineItem.all.each do |li|
-      li.price = li.product.price
-    end
-  end
+require 'test_helper'
+
+class OrderTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

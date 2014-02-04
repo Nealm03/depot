@@ -6,11 +6,8 @@
 # We make no guarantees that this code is fit for any purpose. 
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
-class AddPriceToLineItem < ActiveRecord::Migration
+class AddOrderToLineItem < ActiveRecord::Migration
   def change
-    add_column :line_items, :price, :decimal
-    LineItem.all.each do |li|
-      li.price = li.product.price
-    end
+    add_reference :line_items, :order, index: true
   end
 end
